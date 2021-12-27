@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	<RootNamespace>EliteDangerousMacroDeckPlugin</RootNamespace>
+	<AssemblyName>EliteDangerousMacroDeckPlugin</AssemblyName>
+	<UseWindowsForms>true</UseWindowsForms>
+	<Authors>maimedleech</Authors>
+	<Company>maimedleech</Company>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<Version>1.0.0</Version>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+	<NeutralLanguage>en</NeutralLanguage>
+	<PackageProjectUrl>https://github.com/SuchByte/Macro-Deck-OBS-WebSocket-Plugin</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/SuchByte/Macro-Deck-OBS-WebSocket-Plugin</RepositoryUrl>
+	<Copyright>maimedleech</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\EliteJournalReader\EliteJournalReader\EliteJournalReader.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Macro Deck 2">
+      <HintPath>C:\Program Files\Macro Deck\Macro Deck 2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="$(ProjectDir)CopyForTesting" />
+	</Target>
+	
+</Project>

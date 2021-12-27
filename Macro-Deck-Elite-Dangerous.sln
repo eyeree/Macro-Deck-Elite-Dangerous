@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{072E2554-2A27-4226-B6D0-A0382A8DD301}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EliteJournalReader", "..\EliteJournalReader\EliteJournalReader\EliteJournalReader.csproj", "{748210E8-5EC2-4F0F-A719-803723E41063}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EliteDangerousMacroDeckPlugin", "Plugin\EliteDangerousMacroDeckPlugin.csproj", "{69FEC278-7317-4686-A811-32C0E93A02DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Macro Deck 2", "..\Macro-Deck (fork)\Macro Deck 2.csproj", "{297187AE-2DDF-4F80-89D3-6AF82A19555D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{69FEC278-7317-4686-A811-32C0E93A02DA} = {69FEC278-7317-4686-A811-32C0E93A02DA}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{748210E8-5EC2-4F0F-A719-803723E41063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{748210E8-5EC2-4F0F-A719-803723E41063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{748210E8-5EC2-4F0F-A719-803723E41063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{748210E8-5EC2-4F0F-A719-803723E41063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69FEC278-7317-4686-A811-32C0E93A02DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69FEC278-7317-4686-A811-32C0E93A02DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69FEC278-7317-4686-A811-32C0E93A02DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69FEC278-7317-4686-A811-32C0E93A02DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{297187AE-2DDF-4F80-89D3-6AF82A19555D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297187AE-2DDF-4F80-89D3-6AF82A19555D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297187AE-2DDF-4F80-89D3-6AF82A19555D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297187AE-2DDF-4F80-89D3-6AF82A19555D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6EB4DD2-EBD3-4BCB-BA07-1197DB08DD84}
+	EndGlobalSection
+EndGlobal
