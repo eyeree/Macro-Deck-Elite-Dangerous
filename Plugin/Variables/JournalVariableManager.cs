@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace EliteDangerousMacroDeckPlugin
+namespace EliteDangerousMacroDeckPlugin.Variables
 {
-    public class JournalVariableManager 
+    public class JournalVariableManager
     {
 
         private readonly JournalWatcher _journalWatcher;
@@ -387,7 +387,7 @@ namespace EliteDangerousMacroDeckPlugin
                 Set("name_localized", e.Name_Localised);
                 Set("price", e.Price);
                 Set("id", e.SuitID.ToString());
-                Set("mods", String.Join(",", e.SuitMods));
+                Set("mods", string.Join(",", e.SuitMods));
                 Set("timestamp", e.Timestamp);
             }
 

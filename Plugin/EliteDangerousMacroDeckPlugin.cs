@@ -1,4 +1,6 @@
-﻿using SuchByte.MacroDeck.Plugins;
+﻿using EliteDangerousMacroDeckPlugin.Actions;
+using EliteDangerousMacroDeckPlugin.Variables;
+using SuchByte.MacroDeck.Plugins;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -12,13 +14,11 @@ namespace EliteDangerousMacroDeckPlugin
     public class EliteDangerousMacroDeckPlugin : MacroDeckPlugin
     {
 
-        // A short description what the plugin can do
         public override string Description => "Elite Dangerous Variables and Actions";
 
-        // You can add a image from your resources here
         public override Image Icon => Properties.Resources.elite_dangerous_logo;
 
-        // Optional; If your plugin can be configured, set to "true". It'll make the "Configure" button appear in the package manager.
+
         public override bool CanConfigure => false;
 
         public string JournalPath { get; private set; }
@@ -26,15 +26,17 @@ namespace EliteDangerousMacroDeckPlugin
         private StatusVariableManager _statusVariableManager;
         private JournalVariableManager _journalVariableManager;
 
+        private BindingActionManager _bindingActionManager;
+
         // Gets called when the plugin is loaded
         public override void Enable()
         {
 
             JournalPath = GetJournalPath();
 
-            this.Actions = new List<PluginAction>
-            {
-            };
+            this.Actions = new List<PluginAction>();
+            
+            _bindingActionManager = new BindingActionManager(this);
 
             _statusVariableManager = new StatusVariableManager(this);
             //_journalVariableManager = new JournalVariableManager(this);

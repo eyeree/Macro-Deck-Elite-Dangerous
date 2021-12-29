@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text;
 
-namespace EliteDangerousMacroDeckPlugin
+namespace EliteDangerousMacroDeckPlugin.Variables
 {
     public class VariableManagerBase
     {
@@ -35,7 +35,7 @@ namespace EliteDangerousMacroDeckPlugin
             _values.Keys.CopyTo(keys, 0);
             foreach (var name in keys)
             {
-                if(!_marked.Contains(name))
+                if (!_marked.Contains(name))
                 {
                     Clear(name);
                 }
@@ -46,10 +46,10 @@ namespace EliteDangerousMacroDeckPlugin
         protected void Clear(string name)
         {
             // TODO: can Macro Deck support deleting variables?
-            if(_values.TryGetValue(name, out object value))
+            if (_values.TryGetValue(name, out object value))
             {
                 var type = _variableType[value.GetType()];
-                switch(type)
+                switch (type)
                 {
                     case VariableType.String:
                         Set(name, "");
@@ -88,12 +88,13 @@ namespace EliteDangerousMacroDeckPlugin
             _marked.Add(name);
             var type = _variableType[value.GetType()];
             var found = _values.TryGetValue(name, out object current);
-            if (!found || (current != null && !current.Equals(value)) || (current == null && value != null))  
+            if (!found || current != null && !current.Equals(value) || current == null && value != null)
             {
                 _values[name] = value;
                 Debug.WriteLine(">>>>> Changed variable {0} to {1}.", full_name, value);
-                // SuchByte.MacroDeck.Variables.VariableManager.SetValue(full_name, value, type, _plugin, save);
-            } else
+                SuchByte.MacroDeck.Variables.VariableManager.SetValue(full_name, value, type, _plugin, save);
+            }
+            else
             {
                 Debug.WriteLine(">>>>> Unchanged variable {0} is {1}.", full_name, value);
             }
@@ -170,8 +171,8 @@ namespace EliteDangerousMacroDeckPlugin
 
         protected void Set(string name, string value, bool save = false)
         {
-            
-            if(value == null)
+
+            if (value == null)
             {
                 value = "";
             }
@@ -206,19 +207,19 @@ namespace EliteDangerousMacroDeckPlugin
             InternalSet(name, value, save);
         }
 
-        protected void Set<Flags>(string name, Flags flags, Flags flagsSet, bool save = false) where Flags : System.Enum
+        protected void Set<Flags>(string name, Flags flags, Flags flagsSet, bool save = false) where Flags : Enum
         {
             ulong bits = Convert.ToUInt64(flags);
             ulong bitsSet = Convert.ToUInt64(flagsSet);
             Set(name, (bits & bitsSet) == bitsSet, save);
         }
 
-        protected void Set<Flags>(string name, Flags flags, Flags flagsSet, Flags flagsClear, bool save = false) where Flags : System.Enum
+        protected void Set<Flags>(string name, Flags flags, Flags flagsSet, Flags flagsClear, bool save = false) where Flags : Enum
         {
             ulong bits = Convert.ToUInt64(flags);
             ulong bitsSet = Convert.ToUInt64(flagsSet);
             ulong bitsClear = Convert.ToUInt64(flagsClear);
-            Set(name, ((bits & bitsSet) == bitsSet) && (bits & bitsClear) == 0, save);
+            Set(name, (bits & bitsSet) == bitsSet && (bits & bitsClear) == 0, save);
         }
 
         protected void Set(string name, DateTime value, bool save = false)
@@ -259,12 +260,12 @@ namespace EliteDangerousMacroDeckPlugin
             Set(name, value, true);
         }
 
-        protected void Save<Flags>(string name, Flags flags, Flags flagsSet) where Flags : System.Enum
+        protected void Save<Flags>(string name, Flags flags, Flags flagsSet) where Flags : Enum
         {
             Set(name, flags, flagsSet, true);
         }
 
-        protected void Save<Flags>(string name, Flags flags, Flags flagsSet, Flags flagsClear) where Flags : System.Enum
+        protected void Save<Flags>(string name, Flags flags, Flags flagsSet, Flags flagsClear) where Flags : Enum
         {
             Set(name, flags, flagsSet, flagsClear, true);
         }

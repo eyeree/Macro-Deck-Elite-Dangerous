@@ -2,7 +2,7 @@
 using EliteJournalReader.Events;
 using System.Diagnostics;
 
-namespace EliteDangerousMacroDeckPlugin
+namespace EliteDangerousMacroDeckPlugin.Variables
 {
     public class StatusVariableManager : VariableManagerBase
     {
@@ -39,8 +39,8 @@ namespace EliteDangerousMacroDeckPlugin
             Set("fsd_cooldown", evt.Flags, StatusFlags.FsdCooldown);
             Set("fsd_jump", evt.Flags, StatusFlags.FsdJump);
             Set("fsd_mass_locked", evt.Flags, StatusFlags.FsdMassLocked);
-            Set("fuel_main", (evt.Fuel == null) ? 0 : evt.Fuel.FuelMain);
-            Set("fuel_reservoir", (evt.Fuel == null) ? 0 : evt.Fuel.FuelReservoir);
+            Set("fuel_main", evt.Fuel == null ? 0 : evt.Fuel.FuelMain);
+            Set("fuel_reservoir", evt.Fuel == null ? 0 : evt.Fuel.FuelReservoir);
             Set("glide_mode", evt.Flags2, MoreStatusFlags.GlideMode);
             Set("gravity", evt.Gravity);
             Set("gui_focus", evt.GuiFocus.ToString());
