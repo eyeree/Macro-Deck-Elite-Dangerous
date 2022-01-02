@@ -22,8 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\EliteJournalReader\EliteJournalReader\EliteJournalReader.csproj" />
-    <ProjectReference Include="..\..\InputSimulatorStandard\src\GregsStack.InputSimulatorStandard\GregsStack.InputSimulatorStandard.csproj" />
+    <ProjectReference Include="..\InputSimulatorStandard\src\GregsStack.InputSimulatorStandard\GregsStack.InputSimulatorStandard.csproj" />
   </ItemGroup>
 
   <ItemGroup>

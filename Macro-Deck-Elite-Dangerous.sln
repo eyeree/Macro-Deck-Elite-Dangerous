@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EliteJournalReader", "..\EliteJournalReader\EliteJournalReader\EliteJournalReader.csproj", "{748210E8-5EC2-4F0F-A719-803723E41063}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EliteDangerousMacroDeckPlugin", "Plugin\EliteDangerousMacroDeckPlugin.csproj", "{69FEC278-7317-4686-A811-32C0E93A02DA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Macro Deck 2", "..\Macro-Deck (fork)\Macro Deck 2.csproj", "{297187AE-2DDF-4F80-89D3-6AF82A19555D}"
@@ -18,9 +16,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Macro Deck 2", "..\Macro-De
 		{69FEC278-7317-4686-A811-32C0E93A02DA} = {69FEC278-7317-4686-A811-32C0E93A02DA}
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windows Utils", "..\Macro-Deck-Windows-Utils-Plugin\Windows Utils.csproj", "{EF135B45-E529-423A-BE9B-B925D4ED2234}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GregsStack.InputSimulatorStandard", "InputSimulatorStandard\src\GregsStack.InputSimulatorStandard\GregsStack.InputSimulatorStandard.csproj", "{ACC53DC5-F7DE-4DC1-832D-B15808345F72}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GregsStack.InputSimulatorStandard", "..\InputSimulatorStandard\src\GregsStack.InputSimulatorStandard\GregsStack.InputSimulatorStandard.csproj", "{D71DEE88-A55B-43D9-8917-6058D184ADFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EliteJournalReader", "EliteJournalReader\EliteJournalReader\EliteJournalReader.csproj", "{4F6606D4-452A-4E58-9290-C9AB614319C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +26,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{748210E8-5EC2-4F0F-A719-803723E41063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{748210E8-5EC2-4F0F-A719-803723E41063}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{748210E8-5EC2-4F0F-A719-803723E41063}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{748210E8-5EC2-4F0F-A719-803723E41063}.Release|Any CPU.Build.0 = Release|Any CPU
 		{69FEC278-7317-4686-A811-32C0E93A02DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{69FEC278-7317-4686-A811-32C0E93A02DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69FEC278-7317-4686-A811-32C0E93A02DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -40,14 +34,14 @@ Global
 		{297187AE-2DDF-4F80-89D3-6AF82A19555D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{297187AE-2DDF-4F80-89D3-6AF82A19555D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{297187AE-2DDF-4F80-89D3-6AF82A19555D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EF135B45-E529-423A-BE9B-B925D4ED2234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF135B45-E529-423A-BE9B-B925D4ED2234}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF135B45-E529-423A-BE9B-B925D4ED2234}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF135B45-E529-423A-BE9B-B925D4ED2234}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D71DEE88-A55B-43D9-8917-6058D184ADFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D71DEE88-A55B-43D9-8917-6058D184ADFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D71DEE88-A55B-43D9-8917-6058D184ADFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D71DEE88-A55B-43D9-8917-6058D184ADFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACC53DC5-F7DE-4DC1-832D-B15808345F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACC53DC5-F7DE-4DC1-832D-B15808345F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACC53DC5-F7DE-4DC1-832D-B15808345F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACC53DC5-F7DE-4DC1-832D-B15808345F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F6606D4-452A-4E58-9290-C9AB614319C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F6606D4-452A-4E58-9290-C9AB614319C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F6606D4-452A-4E58-9290-C9AB614319C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F6606D4-452A-4E58-9290-C9AB614319C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
