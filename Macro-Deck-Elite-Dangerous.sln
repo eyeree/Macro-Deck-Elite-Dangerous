@@ -18,6 +18,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Macro Deck 2", "..\Macro-De
 		{69FEC278-7317-4686-A811-32C0E93A02DA} = {69FEC278-7317-4686-A811-32C0E93A02DA}
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windows Utils", "..\Macro-Deck-Windows-Utils-Plugin\Windows Utils.csproj", "{EF135B45-E529-423A-BE9B-B925D4ED2234}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GregsStack.InputSimulatorStandard", "..\InputSimulatorStandard\src\GregsStack.InputSimulatorStandard\GregsStack.InputSimulatorStandard.csproj", "{D71DEE88-A55B-43D9-8917-6058D184ADFE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +40,14 @@ Global
 		{297187AE-2DDF-4F80-89D3-6AF82A19555D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{297187AE-2DDF-4F80-89D3-6AF82A19555D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{297187AE-2DDF-4F80-89D3-6AF82A19555D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF135B45-E529-423A-BE9B-B925D4ED2234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF135B45-E529-423A-BE9B-B925D4ED2234}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF135B45-E529-423A-BE9B-B925D4ED2234}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF135B45-E529-423A-BE9B-B925D4ED2234}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D71DEE88-A55B-43D9-8917-6058D184ADFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D71DEE88-A55B-43D9-8917-6058D184ADFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71DEE88-A55B-43D9-8917-6058D184ADFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D71DEE88-A55B-43D9-8917-6058D184ADFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

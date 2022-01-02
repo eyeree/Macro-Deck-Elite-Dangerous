@@ -1,7 +1,6 @@
 ﻿using SuchByte.MacroDeck.Variables;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace EliteDangerousMacroDeckPlugin.Actions
 {
@@ -10,7 +9,7 @@ namespace EliteDangerousMacroDeckPlugin.Actions
 
         private static Dictionary<string, Variable> _variables = new Dictionary<string, Variable>();
 
-        private static T get<T>(string name, string expectedType, T defaultValue, Func<string, T> parse)
+        private static T Get<T>(string name, string expectedType, T defaultValue, Func<string, T> parse)
         {
 
             _variables.TryGetValue(name, out var variable);
@@ -32,14 +31,24 @@ namespace EliteDangerousMacroDeckPlugin.Actions
 
         }
 
-        public static bool getBool(string name, bool defaultValue = false)
+        public static bool GetBool(string name, bool defaultValue = false)
         {
-            return get(name, "bool", defaultValue, Boolean.Parse);
+            return Get(name, "bool", defaultValue, Boolean.Parse);
         }
 
-        public static string getString(string name, string defaultValue = "")
+        public static string GetString(string name, string defaultValue = "")
         {
-            return get(name, "string", defaultValue, value => value);
+            return Get(name, "string", defaultValue, value => value);
+        }
+
+        public static float GetFloat(string name, float defaultValue = 0.0f)
+        {
+            return Get(name, "float", defaultValue, float.Parse);
+        }
+
+        public static int GetInt(string name, int defaultValue = 0)
+        {
+            return Get(name, "int", defaultValue, int.Parse);
         }
 
     }

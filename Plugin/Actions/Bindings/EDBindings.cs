@@ -3,36 +3,61 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-using System.Threading;
 
 namespace EliteDangerousMacroDeckPlugin.Actions.Bindings
 {
-    public enum BindingType : int
-    {
-        General = 0,
-        Ship = 1,
-        Srv = 2,
-        OnFoot = 3
-    }
 
-    internal class BindingsManager
+    internal class EDBindings
     {
+
+        private static EDBindings _instance = null;
+        private static EDBindings Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new EDBindings();
+                }
+                return _instance;
+            }
+        }
+
+        public static BindingsInfo General
+        {
+            get { return Instance._general; }
+        }
+
+        public static BindingsInfo Ship
+        {
+            get { return Instance._ship; }
+        }
+
+        public static BindingsInfo Srv
+        {
+            get { return Instance._srv; }
+        }
+
+        public static BindingsInfo Foot
+        {
+            get { return Instance._foot; }
+        }
 
         private readonly string _defaultBindingsPath;
         private readonly FileSystemWatcher _startPresetWatcher;
         private readonly string _startPresetPath;
 
-        private readonly Dictionary<string, BindingsLoader> _bindingsLoaders = new Dictionary<string, BindingsLoader>();
+        private readonly Dictionary<string, BindingsInfoLoader> _bindingsLoaders = new Dictionary<string, BindingsInfoLoader>();
 
-        public Bindings General { get; private set; }
-        public Bindings Ship { get; private set; }
-        public Bindings Srv { get; private set; }
-        public Bindings Foot { get; private set; }
+        private BindingsInfo _general;
+        private BindingsInfo _ship;
+        private BindingsInfo _srv;
+        private BindingsInfo _foot;
 
-        public BindingsManager()
+        private EDBindings()
         {
 
-            General = Ship = Srv = Foot = BindingsLoader.EmptyBindings;
+            _general = _ship = _srv = _foot = BindingsInfoLoader.EmptyBindings;
 
             try
             {
@@ -109,30 +134,30 @@ namespace EliteDangerousMacroDeckPlugin.Actions.Bindings
         {
             LoadBindings(bindingsName, bindings =>
                 {
-                    General = bindings;
-                    Ship = bindings;
-                    Srv = bindings;
-                    Foot = bindings;
+                    _general = bindings;
+                    _ship = bindings;
+                    _srv = bindings;
+                    _foot = bindings;
                 }
             );
         }
 
         private void LoadPostOdysseyBindings(string[] bindingsNames)
         {
-            LoadBindings(bindingsNames[0], bindings => General = bindings);
-            LoadBindings(bindingsNames[1], bindings => Ship = bindings);
-            LoadBindings(bindingsNames[2], bindings => Srv = bindings);
-            LoadBindings(bindingsNames[3], bindings => Foot = bindings);
+            LoadBindings(bindingsNames[0], bindings => _general = bindings);
+            LoadBindings(bindingsNames[1], bindings => _ship = bindings);
+            LoadBindings(bindingsNames[2], bindings => _srv = bindings);
+            LoadBindings(bindingsNames[3], bindings => _foot = bindings);
         }
 
-        private void LoadBindings(string bindingsName, Action<Bindings> onChanged)
+        private void LoadBindings(string bindingsName, Action<BindingsInfo> onChanged)
         {
 
             _bindingsLoaders.TryGetValue(bindingsName, out var bindingsLoader);
-            if(bindingsLoader == null)
-            {               
+            if (bindingsLoader == null)
+            {
                 var filePath = GetBindingsFilePath(bindingsName);
-                bindingsLoader = new BindingsLoader(filePath);
+                bindingsLoader = new BindingsInfoLoader(filePath);
                 _bindingsLoaders.Add(bindingsName, bindingsLoader);
             }
 

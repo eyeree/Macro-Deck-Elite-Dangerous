@@ -1,43 +1,79 @@
 ﻿using EliteDangerousMacroDeckPlugin.Actions.Bindings;
-using SuchByte.MacroDeck.ActionButton;
 using SuchByte.MacroDeck.Plugins;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace EliteDangerousMacroDeckPlugin.Actions
 {
 
-    internal class StandardBindingAction : PluginAction
+    // Macro Deck serializes all actions to XML and back when they are loaded. So we need
+    // an unique type for each one. Otherwise we could just create instances with different
+    // name, description, and getBindings values.
+
+    // SHIP
+
+    public class ShipLandingGearToggle : SimpleStandardBindingAction
+    {
+        public ShipLandingGearToggle() 
+            : base("Ship Landing Gear Toggle", "Raise or Lower Ship Landing Gear", 
+                  () => EDBindings.Ship.LandingGearToggle)
+        {
+        }
+    }
+
+    public class ShipLightsToggle : SimpleStandardBindingAction
+    {
+        public ShipLightsToggle()
+            : base("Ship Lights Toggle", "Turn On or Off Ship Spot Lights",
+                () => EDBindings.Ship.ShipSpotLightToggle)
+        {
+        }
+    }
+
+    public class ShipOrbitLinesToggle : SimpleStandardBindingAction
+    {
+        public ShipOrbitLinesToggle()
+            : base("Ship Orbit Lines Toggle", "Turn On or Off Ship Orbit Lines",
+                () => EDBindings.Ship.OrbitLinesToggle)
+        {
+        }
+
+    }
+
+    // SRV
+
+    public class SrvLightsToggle : SimpleStandardBindingAction
+    {
+        public SrvLightsToggle()
+            : base("SRV Lights Toggle", "Turn On or Off SRV Headlights",
+                () => EDBindings.Srv.HeadlightsBuggyButton)
+        {
+        }
+    }
+
+    // FOOT
+
+    public class FootLightsToggle : SimpleStandardBindingAction
     {
 
-        public override string Name => _name;
-        public override string Description => _description;
-
-        private readonly Func<string, ActionButton, StandardBindingInfo> _getBinding;
-        private readonly string _name;
-        private readonly string _description;
-
-        public StandardBindingAction(string name, string description, Func<StandardBindingInfo> getBinding)
-            : this(name, description, (clientId, actionButton) => getBinding())
+        public FootLightsToggle()
+            : base("Foot Lights Toggle", "Turn On or Off Flashlight.",
+                () => EDBindings.Foot.HumanoidToggleFlashlightButton)
         {
         }
 
-        public StandardBindingAction(string name, string description, Func<ActionButton, StandardBindingInfo> getBinding)
-            : this(name, description, (clientId, actionButton) => getBinding(actionButton))
-        {
-        }
+    }
 
-        public StandardBindingAction(string name, string description, Func<string, ActionButton, StandardBindingInfo> getBinding)
-        {
-            _name = name;
-            _description = description;
-            _getBinding = getBinding;
-        }
+    // CURRENT
 
-        public override void Trigger(string clientId, ActionButton actionButton)
+    public class CurrentLightsToggle : ContextualStandardBindingAction
+    {
+
+        public CurrentLightsToggle()
+            : base("Current Lights Toggle", "Turn On or Off Ship, SRV, or Backpack Lights")
         {
-            var bindingInfo = _getBinding(clientId, actionButton);
+            AddContext("ship", () => EDBindings.Ship.ShipSpotLightToggle);
+            AddContext("srv", () => EDBindings.Srv.HeadlightsBuggyButton);
+            AddContext("foot", () => EDBindings.Foot.HumanoidToggleFlashlightButton);
         }
 
     }
@@ -46,59 +82,35 @@ namespace EliteDangerousMacroDeckPlugin.Actions
     {
 
         private readonly EliteDangerousMacroDeckPlugin _plugin;
-        private readonly Bindings.BindingsManager _bindings;
 
         public BindingActionManager(EliteDangerousMacroDeckPlugin plugin)
         {
 
             _plugin = plugin;
-            _bindings = new Bindings.BindingsManager();
 
             // SHIP
 
-            add("ship_landing_gear_toggle", "Raise or Lower Ship Landing Gear", 
-                () => _bindings.Ship.LandingGearToggle
-            );
-
-            add("ship_lights_toggle", "Turn On or Off Ship Lights",
-                () => _bindings.Ship.ShipSpotLightToggle
-            );
-
-            add("ship_orbit_lines_toggle", "Turn On or Off Ship Orbit Lines",
-                () => _bindings.Ship.OrbitLinesToggle
-            );
+            Add<ShipLandingGearToggle>();
+            Add<ShipLightsToggle>();
+            Add<ShipOrbitLinesToggle>();
 
             // SRV
 
-            add("srv_lights_toggle", "Turn On or Off SRV Lights",
-                () => _bindings.Srv.HeadlightsBuggyButton
-            );
+            Add<SrvLightsToggle>();
 
-            // ANY
+            // FOOT
 
-            add("current_lights_toggle", "Turn On or Off Ship, Srv, or Backback Lights",
-                () => getBool("is_main_ship") ? _bindings.Ship.ShipSpotLightToggle :
-                      getBool("is_srv") ? _bindings.Srv.HeadlightsBuggyButton :
-                      getBool("on_foot") ? _bindings.Foot.HumanoidToggleFlashlightButton :
-                      null
-            );
+            Add<FootLightsToggle>();
 
+            // CURRENT
+
+            Add<CurrentLightsToggle>();
 
         }
 
-        private void add(PluginAction action)
+        private void Add<T>() where T : PluginAction, new()
         {
-            _plugin.Actions.Add(action);
-        }
-
-        private void add(string name, string description, Func<StandardBindingInfo> getBinding)
-        {
-            add(new StandardBindingAction("ed_" + name, description, getBinding));
-        }
-
-        bool getBool(string variableName)
-        {
-            return VariableCache.getBool(variableName);
+            _plugin.Actions.Add(new T());
         }
 
     }

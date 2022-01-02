@@ -13,13 +13,11 @@ namespace EliteDangerousMacroDeckPlugin.Variables
 
         private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
         private readonly MacroDeckPlugin _plugin;
-        private readonly string _prefix;
         private readonly HashSet<string> _marked = new HashSet<string>();
 
-        protected VariableManagerBase(MacroDeckPlugin plugin, string prefix)
+        protected VariableManagerBase(MacroDeckPlugin plugin)
         {
             _plugin = plugin;
-            _prefix = prefix + "_";
         }
 
         protected void Mark()
@@ -84,19 +82,18 @@ namespace EliteDangerousMacroDeckPlugin.Variables
         private void InternalSet(string name, object value, bool save)
         {
             Debug.Assert(_variableType.ContainsKey(value.GetType()), $"Unsupported variable type: {value.GetType().Name}");
-            var full_name = _prefix + name;
             _marked.Add(name);
             var type = _variableType[value.GetType()];
             var found = _values.TryGetValue(name, out object current);
             if (!found || current != null && !current.Equals(value) || current == null && value != null)
             {
                 _values[name] = value;
-                Debug.WriteLine(">>>>> Changed variable {0} to {1}.", full_name, value);
-                SuchByte.MacroDeck.Variables.VariableManager.SetValue(full_name, value, type, _plugin, save);
+                Debug.WriteLine(">>>>> Changed variable {0} to {1}.", name, value);
+                SuchByte.MacroDeck.Variables.VariableManager.SetValue(name, value, type, _plugin, save);
             }
             else
             {
-                Debug.WriteLine(">>>>> Unchanged variable {0} is {1}.", full_name, value);
+                //Debug.WriteLine(">>>>> Unchanged variable {0} is {1}.", name, value);
             }
         }
 
@@ -209,17 +206,12 @@ namespace EliteDangerousMacroDeckPlugin.Variables
 
         protected void Set<Flags>(string name, Flags flags, Flags flagsSet, bool save = false) where Flags : Enum
         {
-            ulong bits = Convert.ToUInt64(flags);
-            ulong bitsSet = Convert.ToUInt64(flagsSet);
-            Set(name, (bits & bitsSet) == bitsSet, save);
+            Set(name, AreFlagsSet(flags, flagsSet), save);
         }
 
         protected void Set<Flags>(string name, Flags flags, Flags flagsSet, Flags flagsClear, bool save = false) where Flags : Enum
         {
-            ulong bits = Convert.ToUInt64(flags);
-            ulong bitsSet = Convert.ToUInt64(flagsSet);
-            ulong bitsClear = Convert.ToUInt64(flagsClear);
-            Set(name, (bits & bitsSet) == bitsSet && (bits & bitsClear) == 0, save);
+            Set(name, AreFlagsSet(flags, flagsSet, flagsClear), save);
         }
 
         protected void Set(string name, DateTime value, bool save = false)
@@ -273,6 +265,21 @@ namespace EliteDangerousMacroDeckPlugin.Variables
         protected void Save(string name, DateTime value)
         {
             Set(name, value, true);
+        }
+
+        protected static bool AreFlagsSet<Flags>(Flags flags, Flags flagsSet) where Flags : Enum
+        {
+            ulong bits = Convert.ToUInt64(flags);
+            ulong bitsSet = Convert.ToUInt64(flagsSet);
+            return (bits & bitsSet) == bitsSet;
+        }
+
+        protected static bool AreFlagsSet<Flags>(Flags flags, Flags flagsSet, Flags flagsClear) where Flags : Enum
+        {
+            ulong bits = Convert.ToUInt64(flags);
+            ulong bitsSet = Convert.ToUInt64(flagsSet);
+            ulong bitsClear = Convert.ToUInt64(flagsClear);
+            return (bits & bitsSet) == bitsSet && (bits & bitsClear) == 0;
         }
 
     }

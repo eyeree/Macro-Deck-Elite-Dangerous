@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Threading;
 using System.Xml.Serialization;
 
 namespace EliteDangerousMacroDeckPlugin.Actions.Bindings
 {
-    public class BindingsLoader
+    public class BindingsInfoLoader
     {
 
-        public static readonly Bindings EmptyBindings = new Bindings();
+        public static readonly BindingsInfo EmptyBindings = new BindingsInfo();
 
-        private static readonly XmlSerializer _bindingsSerializer = new XmlSerializer(typeof(Bindings));
+        private static readonly XmlSerializer _bindingsSerializer = new XmlSerializer(typeof(BindingsInfo));
 
-        public event EventHandler<Bindings> Changed;
-        public Bindings Bindings { get; private set; }
+        public event EventHandler<BindingsInfo> Changed;
+        public BindingsInfo Bindings { get; private set; }
 
         private readonly FileSystemWatcher _fileSystemWatcher;
         private readonly string _filePath;
 
-        public BindingsLoader(string filePath)
+        public BindingsInfoLoader(string filePath)
         {
-            
+
             _filePath = filePath;
             Bindings = EmptyBindings;
 
@@ -46,12 +45,12 @@ namespace EliteDangerousMacroDeckPlugin.Actions.Bindings
 
         private void Load()
         {
-            Bindings bindings = EmptyBindings;
+            BindingsInfo bindings = EmptyBindings;
             try
             {
                 using var stream = Util.WaitForFile(_filePath);
                 using var reader = new StreamReader(stream);
-                bindings = (Bindings)_bindingsSerializer.Deserialize(reader);
+                bindings = (BindingsInfo)_bindingsSerializer.Deserialize(reader);
             }
             catch (Exception ex)
             {

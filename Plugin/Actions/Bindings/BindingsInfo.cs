@@ -7,172 +7,172 @@ namespace EliteDangerousMacroDeckPlugin.Actions.Bindings
 
     [Serializable]
     [XmlRoot("Root")]
-    public class Bindings
+    public class BindingsInfo
     {
         [XmlAttribute]
-        public string PresetName { get;  set; }
+        public string PresetName { get; set; }
         [XmlAttribute]
-        public long MajorVersion { get;  set; }
+        public long MajorVersion { get; set; }
         [XmlAttribute]
-        public long MinorVersion { get;  set; }
+        public long MinorVersion { get; set; }
 
-        public string KeyboardLayout { get;  set; }
-        public string LockedDevice { get;  set; }
-        public ValueInfo MouseXMode { get;  set; }
-        public ValueInfo MouseXDecay { get;  set; }
-        public ValueInfo MouseYMode { get;  set; }
-        public ValueInfo MouseYDecay { get;  set; }
-        public StandardBindingInfo MouseReset { get;  set; }
-        public ValueInfo MouseSensitivity { get;  set; }
-        public ValueInfo MouseDecayRate { get;  set; }
-        public ValueInfo MouseDeadzone { get;  set; }
-        public ValueInfo MouseLinearity { get;  set; }
-        public ValueInfo MouseGUI { get;  set; }
-        public AxisBindingInfo YawAxisRaw { get;  set; }
-        public StandardBindingInfo YawLeftButton { get;  set; }
-        public StandardBindingInfo YawRightButton { get;  set; }
-        public ValueInfo YawToRollMode { get;  set; }
-        public ValueInfo YawToRollSensitivity { get;  set; }
-        public ToggleBindingInfo YawToRollButton { get;  set; }
-        public AxisBindingInfo RollAxisRaw { get;  set; }
-        public StandardBindingInfo RollLeftButton { get;  set; }
-        public StandardBindingInfo RollRightButton { get;  set; }
-        public AxisBindingInfo PitchAxisRaw { get;  set; }
-        public StandardBindingInfo PitchUpButton { get;  set; }
-        public StandardBindingInfo PitchDownButton { get;  set; }
-        public AxisBindingInfo LateralThrustRaw { get;  set; }
-        public StandardBindingInfo LeftThrustButton { get;  set; }
-        public StandardBindingInfo RightThrustButton { get;  set; }
-        public AxisBindingInfo VerticalThrustRaw { get;  set; }
-        public StandardBindingInfo UpThrustButton { get;  set; }
-        public StandardBindingInfo DownThrustButton { get;  set; }
-        public AxisBindingInfo AheadThrust { get;  set; }
-        public StandardBindingInfo ForwardThrustButton { get;  set; }
-        public StandardBindingInfo BackwardThrustButton { get;  set; }
-        public AxisBindingInfo YawAxisAlternate { get;  set; }
-        public AxisBindingInfo RollAxisAlternate { get;  set; }
-        public AxisBindingInfo PitchAxisAlternate { get;  set; }
-        public AxisBindingInfo LateralThrustAlternate { get;  set; }
-        public AxisBindingInfo VerticalThrustAlternate { get;  set; }
-        public ToggleBindingInfo UseAlternateFlightValuesToggle { get;  set; }
-        public AxisBindingInfo ThrottleAxis { get;  set; }
-        public ValueInfo ThrottleRange { get;  set; }
-        public ToggleBindingInfo ToggleReverseThrottleInput { get;  set; }
-        public StandardBindingInfo ForwardKey { get;  set; }
-        public StandardBindingInfo BackwardKey { get;  set; }
-        public ValueInfo ThrottleIncrement { get;  set; }
-        public StandardBindingInfo SetSpeedMinus100 { get;  set; }
-        public StandardBindingInfo SetSpeedMinus75 { get;  set; }
-        public StandardBindingInfo SetSpeedMinus50 { get;  set; }
-        public StandardBindingInfo SetSpeedMinus25 { get;  set; }
-        public StandardBindingInfo SetSpeedZero { get;  set; }
-        public StandardBindingInfo SetSpeed25 { get;  set; }
-        public StandardBindingInfo SetSpeed50 { get;  set; }
-        public StandardBindingInfo SetSpeed75 { get;  set; }
-        public StandardBindingInfo SetSpeed100 { get;  set; }
-        public AxisBindingInfo YawAxis_Landing { get;  set; }
-        public StandardBindingInfo YawLeftButton_Landing { get;  set; }
-        public StandardBindingInfo YawRightButton_Landing { get;  set; }
-        public ValueInfo YawToRollMode_Landing { get;  set; }
-        public AxisBindingInfo PitchAxis_Landing { get;  set; }
-        public StandardBindingInfo PitchUpButton_Landing { get;  set; }
-        public StandardBindingInfo PitchDownButton_Landing { get;  set; }
-        public AxisBindingInfo RollAxis_Landing { get;  set; }
-        public StandardBindingInfo RollLeftButton_Landing { get;  set; }
-        public StandardBindingInfo RollRightButton_Landing { get;  set; }
-        public AxisBindingInfo LateralThrust_Landing { get;  set; }
-        public StandardBindingInfo LeftThrustButton_Landing { get;  set; }
-        public StandardBindingInfo RightThrustButton_Landing { get;  set; }
-        public AxisBindingInfo VerticalThrust_Landing { get;  set; }
-        public StandardBindingInfo UpThrustButton_Landing { get;  set; }
-        public StandardBindingInfo DownThrustButton_Landing { get;  set; }
-        public AxisBindingInfo AheadThrust_Landing { get;  set; }
-        public StandardBindingInfo ForwardThrustButton_Landing { get;  set; }
-        public StandardBindingInfo BackwardThrustButton_Landing { get;  set; }
-        public ToggleBindingInfo ToggleFlightAssist { get;  set; }
-        public ValueInfo YawToRollMode_FAOff { get;  set; }
-        public StandardBindingInfo UseBoostJuice { get;  set; }
-        public StandardBindingInfo HyperSuperCombination { get;  set; }
-        public StandardBindingInfo Supercruise { get;  set; }
-        public StandardBindingInfo Hyperspace { get;  set; }
-        public ToggleBindingInfo DisableRotationCorrectToggle { get;  set; }
-        public StandardBindingInfo OrbitLinesToggle { get;  set; }
-        public StandardBindingInfo SelectTarget { get;  set; }
-        public StandardBindingInfo CycleNextTarget { get;  set; }
-        public StandardBindingInfo CyclePreviousTarget { get;  set; }
-        public StandardBindingInfo SelectHighestThreat { get;  set; }
-        public StandardBindingInfo CycleNextHostileTarget { get;  set; }
-        public StandardBindingInfo CyclePreviousHostileTarget { get;  set; }
-        public StandardBindingInfo TargetWingman0 { get;  set; }
-        public StandardBindingInfo TargetWingman1 { get;  set; }
-        public StandardBindingInfo TargetWingman2 { get;  set; }
-        public StandardBindingInfo SelectTargetsTarget { get;  set; }
-        public StandardBindingInfo WingNavLock { get;  set; }
-        public StandardBindingInfo CycleNextSubsystem { get;  set; }
-        public StandardBindingInfo CyclePreviousSubsystem { get;  set; }
-        public StandardBindingInfo TargetNextRouteSystem { get;  set; }
-        public StandardBindingInfo PrimaryFire { get;  set; }
-        public StandardBindingInfo SecondaryFire { get;  set; }
-        public StandardBindingInfo CycleFireGroupNext { get;  set; }
-        public StandardBindingInfo CycleFireGroupPrevious { get;  set; }
-        public StandardBindingInfo DeployHardpointToggle { get;  set; }
-        public ValueInfo DeployHardpointsOnFire { get;  set; }
-        public ToggleBindingInfo ToggleButtonUpInput { get;  set; }
-        public StandardBindingInfo DeployHeatSink { get;  set; }
-        public StandardBindingInfo ShipSpotLightToggle { get;  set; }
-        public AxisBindingInfo RadarRangeAxis { get;  set; }
-        public StandardBindingInfo RadarIncreaseRange { get;  set; }
-        public StandardBindingInfo RadarDecreaseRange { get;  set; }
-        public StandardBindingInfo IncreaseEnginesPower { get;  set; }
-        public StandardBindingInfo IncreaseWeaponsPower { get;  set; }
-        public StandardBindingInfo IncreaseSystemsPower { get;  set; }
-        public StandardBindingInfo ResetPowerDistribution { get;  set; }
-        public StandardBindingInfo HMDReset { get;  set; }
-        public ToggleBindingInfo ToggleCargoScoop { get;  set; }
-        public StandardBindingInfo EjectAllCargo { get;  set; }
-        public StandardBindingInfo LandingGearToggle { get;  set; }
-        public ToggleBindingInfo MicrophoneMute { get;  set; }
-        public ValueInfo MuteButtonMode { get;  set; }
-        public ValueInfo CqcMuteButtonMode { get;  set; }
-        public StandardBindingInfo UseShieldCell { get;  set; }
-        public StandardBindingInfo FireChaffLauncher { get;  set; }
-        public ValueInfo EnableMenuGroups { get;  set; }
+        public string KeyboardLayout { get; set; }
+        public string LockedDevice { get; set; }
+        public ValueInfo MouseXMode { get; set; }
+        public ValueInfo MouseXDecay { get; set; }
+        public ValueInfo MouseYMode { get; set; }
+        public ValueInfo MouseYDecay { get; set; }
+        public StandardBindingInfo MouseReset { get; set; }
+        public ValueInfo MouseSensitivity { get; set; }
+        public ValueInfo MouseDecayRate { get; set; }
+        public ValueInfo MouseDeadzone { get; set; }
+        public ValueInfo MouseLinearity { get; set; }
+        public ValueInfo MouseGUI { get; set; }
+        public AxisBindingInfo YawAxisRaw { get; set; }
+        public StandardBindingInfo YawLeftButton { get; set; }
+        public StandardBindingInfo YawRightButton { get; set; }
+        public ValueInfo YawToRollMode { get; set; }
+        public ValueInfo YawToRollSensitivity { get; set; }
+        public ToggleBindingInfo YawToRollButton { get; set; }
+        public AxisBindingInfo RollAxisRaw { get; set; }
+        public StandardBindingInfo RollLeftButton { get; set; }
+        public StandardBindingInfo RollRightButton { get; set; }
+        public AxisBindingInfo PitchAxisRaw { get; set; }
+        public StandardBindingInfo PitchUpButton { get; set; }
+        public StandardBindingInfo PitchDownButton { get; set; }
+        public AxisBindingInfo LateralThrustRaw { get; set; }
+        public StandardBindingInfo LeftThrustButton { get; set; }
+        public StandardBindingInfo RightThrustButton { get; set; }
+        public AxisBindingInfo VerticalThrustRaw { get; set; }
+        public StandardBindingInfo UpThrustButton { get; set; }
+        public StandardBindingInfo DownThrustButton { get; set; }
+        public AxisBindingInfo AheadThrust { get; set; }
+        public StandardBindingInfo ForwardThrustButton { get; set; }
+        public StandardBindingInfo BackwardThrustButton { get; set; }
+        public AxisBindingInfo YawAxisAlternate { get; set; }
+        public AxisBindingInfo RollAxisAlternate { get; set; }
+        public AxisBindingInfo PitchAxisAlternate { get; set; }
+        public AxisBindingInfo LateralThrustAlternate { get; set; }
+        public AxisBindingInfo VerticalThrustAlternate { get; set; }
+        public ToggleBindingInfo UseAlternateFlightValuesToggle { get; set; }
+        public AxisBindingInfo ThrottleAxis { get; set; }
+        public ValueInfo ThrottleRange { get; set; }
+        public ToggleBindingInfo ToggleReverseThrottleInput { get; set; }
+        public StandardBindingInfo ForwardKey { get; set; }
+        public StandardBindingInfo BackwardKey { get; set; }
+        public ValueInfo ThrottleIncrement { get; set; }
+        public StandardBindingInfo SetSpeedMinus100 { get; set; }
+        public StandardBindingInfo SetSpeedMinus75 { get; set; }
+        public StandardBindingInfo SetSpeedMinus50 { get; set; }
+        public StandardBindingInfo SetSpeedMinus25 { get; set; }
+        public StandardBindingInfo SetSpeedZero { get; set; }
+        public StandardBindingInfo SetSpeed25 { get; set; }
+        public StandardBindingInfo SetSpeed50 { get; set; }
+        public StandardBindingInfo SetSpeed75 { get; set; }
+        public StandardBindingInfo SetSpeed100 { get; set; }
+        public AxisBindingInfo YawAxis_Landing { get; set; }
+        public StandardBindingInfo YawLeftButton_Landing { get; set; }
+        public StandardBindingInfo YawRightButton_Landing { get; set; }
+        public ValueInfo YawToRollMode_Landing { get; set; }
+        public AxisBindingInfo PitchAxis_Landing { get; set; }
+        public StandardBindingInfo PitchUpButton_Landing { get; set; }
+        public StandardBindingInfo PitchDownButton_Landing { get; set; }
+        public AxisBindingInfo RollAxis_Landing { get; set; }
+        public StandardBindingInfo RollLeftButton_Landing { get; set; }
+        public StandardBindingInfo RollRightButton_Landing { get; set; }
+        public AxisBindingInfo LateralThrust_Landing { get; set; }
+        public StandardBindingInfo LeftThrustButton_Landing { get; set; }
+        public StandardBindingInfo RightThrustButton_Landing { get; set; }
+        public AxisBindingInfo VerticalThrust_Landing { get; set; }
+        public StandardBindingInfo UpThrustButton_Landing { get; set; }
+        public StandardBindingInfo DownThrustButton_Landing { get; set; }
+        public AxisBindingInfo AheadThrust_Landing { get; set; }
+        public StandardBindingInfo ForwardThrustButton_Landing { get; set; }
+        public StandardBindingInfo BackwardThrustButton_Landing { get; set; }
+        public ToggleBindingInfo ToggleFlightAssist { get; set; }
+        public ValueInfo YawToRollMode_FAOff { get; set; }
+        public StandardBindingInfo UseBoostJuice { get; set; }
+        public StandardBindingInfo HyperSuperCombination { get; set; }
+        public StandardBindingInfo Supercruise { get; set; }
+        public StandardBindingInfo Hyperspace { get; set; }
+        public ToggleBindingInfo DisableRotationCorrectToggle { get; set; }
+        public StandardBindingInfo OrbitLinesToggle { get; set; }
+        public StandardBindingInfo SelectTarget { get; set; }
+        public StandardBindingInfo CycleNextTarget { get; set; }
+        public StandardBindingInfo CyclePreviousTarget { get; set; }
+        public StandardBindingInfo SelectHighestThreat { get; set; }
+        public StandardBindingInfo CycleNextHostileTarget { get; set; }
+        public StandardBindingInfo CyclePreviousHostileTarget { get; set; }
+        public StandardBindingInfo TargetWingman0 { get; set; }
+        public StandardBindingInfo TargetWingman1 { get; set; }
+        public StandardBindingInfo TargetWingman2 { get; set; }
+        public StandardBindingInfo SelectTargetsTarget { get; set; }
+        public StandardBindingInfo WingNavLock { get; set; }
+        public StandardBindingInfo CycleNextSubsystem { get; set; }
+        public StandardBindingInfo CyclePreviousSubsystem { get; set; }
+        public StandardBindingInfo TargetNextRouteSystem { get; set; }
+        public StandardBindingInfo PrimaryFire { get; set; }
+        public StandardBindingInfo SecondaryFire { get; set; }
+        public StandardBindingInfo CycleFireGroupNext { get; set; }
+        public StandardBindingInfo CycleFireGroupPrevious { get; set; }
+        public StandardBindingInfo DeployHardpointToggle { get; set; }
+        public ValueInfo DeployHardpointsOnFire { get; set; }
+        public ToggleBindingInfo ToggleButtonUpInput { get; set; }
+        public StandardBindingInfo DeployHeatSink { get; set; }
+        public StandardBindingInfo ShipSpotLightToggle { get; set; }
+        public AxisBindingInfo RadarRangeAxis { get; set; }
+        public StandardBindingInfo RadarIncreaseRange { get; set; }
+        public StandardBindingInfo RadarDecreaseRange { get; set; }
+        public StandardBindingInfo IncreaseEnginesPower { get; set; }
+        public StandardBindingInfo IncreaseWeaponsPower { get; set; }
+        public StandardBindingInfo IncreaseSystemsPower { get; set; }
+        public StandardBindingInfo ResetPowerDistribution { get; set; }
+        public StandardBindingInfo HMDReset { get; set; }
+        public ToggleBindingInfo ToggleCargoScoop { get; set; }
+        public StandardBindingInfo EjectAllCargo { get; set; }
+        public StandardBindingInfo LandingGearToggle { get; set; }
+        public ToggleBindingInfo MicrophoneMute { get; set; }
+        public ValueInfo MuteButtonMode { get; set; }
+        public ValueInfo CqcMuteButtonMode { get; set; }
+        public StandardBindingInfo UseShieldCell { get; set; }
+        public StandardBindingInfo FireChaffLauncher { get; set; }
+        public ValueInfo EnableMenuGroups { get; set; }
         public StandardBindingInfo NightVisionToggle { get; set; }
-        public StandardBindingInfo UIFocus { get;  set; }
-        public ValueInfo UIFocusMode { get;  set; }
-        public StandardBindingInfo FocusLeftPanel { get;  set; }
-        public StandardBindingInfo FocusCommsPanel { get;  set; }
-        public ValueInfo FocusOnTextEntryField { get;  set; }
-        public StandardBindingInfo QuickCommsPanel { get;  set; }
-        public StandardBindingInfo FocusRadarPanel { get;  set; }
-        public StandardBindingInfo FocusRightPanel { get;  set; }
-        public ValueInfo LeftPanelFocusOptions { get;  set; }
-        public ValueInfo CommsPanelFocusOptions { get;  set; }
-        public ValueInfo RolePanelFocusOptions { get;  set; }
-        public ValueInfo RightPanelFocusOptions { get;  set; }
-        public StandardBindingInfo GalaxyMapOpen { get;  set; }
-        public StandardBindingInfo SystemMapOpen { get;  set; }
-        public ToggleBindingInfo ShowPGScoreSummaryInput { get;  set; }
-        public ToggleBindingInfo HeadLookToggle { get;  set; }
-        public StandardBindingInfo Pause { get;  set; }
+        public StandardBindingInfo UIFocus { get; set; }
+        public ValueInfo UIFocusMode { get; set; }
+        public StandardBindingInfo FocusLeftPanel { get; set; }
+        public StandardBindingInfo FocusCommsPanel { get; set; }
+        public ValueInfo FocusOnTextEntryField { get; set; }
+        public StandardBindingInfo QuickCommsPanel { get; set; }
+        public StandardBindingInfo FocusRadarPanel { get; set; }
+        public StandardBindingInfo FocusRightPanel { get; set; }
+        public ValueInfo LeftPanelFocusOptions { get; set; }
+        public ValueInfo CommsPanelFocusOptions { get; set; }
+        public ValueInfo RolePanelFocusOptions { get; set; }
+        public ValueInfo RightPanelFocusOptions { get; set; }
+        public StandardBindingInfo GalaxyMapOpen { get; set; }
+        public StandardBindingInfo SystemMapOpen { get; set; }
+        public ToggleBindingInfo ShowPGScoreSummaryInput { get; set; }
+        public ToggleBindingInfo HeadLookToggle { get; set; }
+        public StandardBindingInfo Pause { get; set; }
         public StandardBindingInfo PlayerHUDModeToggle { get; set; }
         public StandardBindingInfo ExplorationFSSEnter { get; set; }
 
-        public ValueInfo MouseHeadlook { get;  set; }
-        public ValueInfo MouseHeadlookInvert { get;  set; }
-        public ValueInfo MouseHeadlookSensitivity { get;  set; }
-        public ValueInfo HeadlookDefault { get;  set; }
-        public ValueInfo HeadlookIncrement { get;  set; }
-        public ValueInfo HeadlookMode { get;  set; }
-        public ValueInfo HeadlookResetOnToggle { get;  set; }
-        public ValueInfo HeadlookSensitivity { get;  set; }
-        public StandardBindingInfo HeadLookReset { get;  set; }
-        public StandardBindingInfo HeadLookPitchUp { get;  set; }
-        public StandardBindingInfo HeadLookPitchDown { get;  set; }
-        public AxisBindingInfo HeadLookPitchAxisRaw { get;  set; }
-        public StandardBindingInfo HeadLookYawLeft { get;  set; }
-        public StandardBindingInfo HeadLookYawRight { get;  set; }
-        public AxisBindingInfo HeadLookYawAxis { get;  set; }
+        public ValueInfo MouseHeadlook { get; set; }
+        public ValueInfo MouseHeadlookInvert { get; set; }
+        public ValueInfo MouseHeadlookSensitivity { get; set; }
+        public ValueInfo HeadlookDefault { get; set; }
+        public ValueInfo HeadlookIncrement { get; set; }
+        public ValueInfo HeadlookMode { get; set; }
+        public ValueInfo HeadlookResetOnToggle { get; set; }
+        public ValueInfo HeadlookSensitivity { get; set; }
+        public StandardBindingInfo HeadLookReset { get; set; }
+        public StandardBindingInfo HeadLookPitchUp { get; set; }
+        public StandardBindingInfo HeadLookPitchDown { get; set; }
+        public AxisBindingInfo HeadLookPitchAxisRaw { get; set; }
+        public StandardBindingInfo HeadLookYawLeft { get; set; }
+        public StandardBindingInfo HeadLookYawRight { get; set; }
+        public AxisBindingInfo HeadLookYawAxis { get; set; }
 
         public StandardBindingInfo ExplorationFSSQuit { get; set; }
 
@@ -464,58 +464,56 @@ namespace EliteDangerousMacroDeckPlugin.Actions.Bindings
 
     }
 
-    public  class AxisBindingInfo
+    public class AxisBindingInfo
     {
-        public Binding Binding { get;  set; }
-        public ValueInfo Inverted { get;  set; }
-        public ValueInfo Deadzone { get;  set; }
+        public Binding Binding { get; set; }
+        public ValueInfo Inverted { get; set; }
+        public ValueInfo Deadzone { get; set; }
     }
 
-    public  class Binding
+    public class Binding
     {
         [XmlAttribute]
-        public string Device { get;  set; }
+        public string Device { get; set; }
         [XmlAttribute]
-        public string Key { get;  set; }
+        public string Key { get; set; }
     }
 
-    public  class ValueInfo
+    public class ValueInfo
     {
         [XmlAttribute]
-        public string Value { get;  set; }
-    }
-
-
-    public  class StandardBindingInfo
-    {
-        public PrimaryInfo Primary { get;  set; }
-        public SecondaryInfo Secondary { get;  set; }
-    }
-
-    public  class ToggleBindingInfo : StandardBindingInfo
-    {
-        public ValueInfo ToggleOn { get;  set; }
+        public string Value { get; set; }
     }
 
 
-    public  class PrimaryInfo
+    public class StandardBindingInfo
+    {
+        public BindingInfo Primary { get; set; }
+        public BindingInfo Secondary { get; set; }
+    }
+
+    public class ToggleBindingInfo : StandardBindingInfo
+    {
+        public ValueInfo ToggleOn { get; set; }
+    }
+
+    public class BindingInfo
     {
         [XmlAttribute]
-        public string Device { get;  set; }
+        public string Device { get; set; }
         [XmlAttribute]
-        public string Key { get;  set; }
+        public string Key { get; set; }
         [XmlElement("Modifier")]
         public List<Binding> Modifier { get; set; }
+        [XmlElement("Hold")]
+        public HoldInfo Hold { get; set; }
+        
     }
 
-    public  class SecondaryInfo
+    public class HoldInfo
     {
         [XmlAttribute]
-        public string Device { get;  set; }
-        [XmlAttribute]
-        public string Key { get;  set; }
-        [XmlElement("Modifier")]
-        public List<Binding> Modifier { get;  set; }
+        public int Value { get; set; }
     }
 
 }
