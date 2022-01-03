@@ -1,12 +1,22 @@
 ﻿using EliteDangerousMacroDeckPlugin.Actions.Bindings;
 using SuchByte.MacroDeck.ActionButton;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace EliteDangerousMacroDeckPlugin.Actions
 {
 
+    public class Context
+    {
+        private readonly string context = VariableCache.GetString("ed_context");
+        public bool Ship { get { return context == "ship"; } }
+        public bool Srv { get { return context == "ship"; } }
+        public bool Foot { get { return context == "ship"; } }
+    }
+
     public delegate StandardBindingInfo GetBindingFunc();
+    public delegate StandardBindingInfo ContextualGetBindingFunc(Context context);
 
     public abstract class StandardBindingAction : BindingAction
     {
@@ -33,6 +43,8 @@ namespace EliteDangerousMacroDeckPlugin.Actions
                 Trace.TraceInformation($"Action {Name} triggered - no keyboard binding");
                 return;
             }
+
+            Trace.TraceInformation($"Action {Name} triggered");
 
             SendKeyStrokes(keyboardBinding);
 
@@ -61,6 +73,11 @@ namespace EliteDangerousMacroDeckPlugin.Actions
         public SimpleStandardBindingAction(string name, string description, GetBindingFunc getBinding) : base(name, description)
         {
             _getBinding = getBinding;
+        }
+
+        public SimpleStandardBindingAction(string name, string description, ContextualGetBindingFunc getBinding) 
+            : this(name, description, () => getBinding(new Context()))
+        {
         }
 
         protected override StandardBindingInfo GetBinding()

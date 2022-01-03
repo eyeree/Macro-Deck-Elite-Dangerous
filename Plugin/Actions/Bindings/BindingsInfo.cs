@@ -346,7 +346,7 @@ namespace EliteDangerousMacroDeckPlugin.Actions.Bindings
         public StandardBindingInfo RecallDismissShip { get; set; }
         public ToggleBindingInfo VerticalThrustersButton { get; set; }
 
-        public ToggleBindingInfo PhotoCameraToggle_Buggy { get; set; }
+        public StandardBindingInfo PhotoCameraToggle_Buggy { get; set; }
         public ValueInfo MouseBuggySteeringXMode { get; set; }
         public ValueInfo MouseBuggySteeringXDecay { get; set; }
         public ValueInfo MouseBuggyRollingXMode { get; set; }
@@ -396,7 +396,7 @@ namespace EliteDangerousMacroDeckPlugin.Actions.Bindings
 
         // On Foot
 
-        public ToggleBindingInfo PhotoCameraToggle_Humanoid { get; set; }
+        public StandardBindingInfo PhotoCameraToggle_Humanoid { get; set; }
 
         public StandardBindingInfo HumanoidForwardButton { get; set; }
         public StandardBindingInfo HumanoidBackwardButton { get; set; }
