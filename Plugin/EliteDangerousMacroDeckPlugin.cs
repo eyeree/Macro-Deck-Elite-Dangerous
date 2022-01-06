@@ -1,4 +1,5 @@
 ﻿using EliteDangerousMacroDeckPlugin.Actions;
+using EliteDangerousMacroDeckPlugin.GUI;
 using EliteDangerousMacroDeckPlugin.Variables;
 using SuchByte.MacroDeck.Plugins;
 using SuchByte.MacroDeck.Profiles;
@@ -21,7 +22,7 @@ namespace EliteDangerousMacroDeckPlugin
 
         public override Image Icon => Properties.Resources.elite_dangerous_logo;
 
-        public override bool CanConfigure => false;
+        public override bool CanConfigure => true;
 
         private StatusVariableManager _statusVariableManager;
 
@@ -39,6 +40,13 @@ namespace EliteDangerousMacroDeckPlugin
 
         }
 
+        public override void OpenConfigurator()
+        {
+            using (var pluginConfig = new PluginConfig())
+            {
+                pluginConfig.ShowDialog();
+            }
+        }
 
     }
 

@@ -10,15 +10,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EliteDangerousMacroDeckPlugin", "Plugin\EliteDangerousMacroDeckPlugin.csproj", "{69FEC278-7317-4686-A811-32C0E93A02DA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{297187AE-2DDF-4F80-89D3-6AF82A19555D} = {297187AE-2DDF-4F80-89D3-6AF82A19555D}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Macro Deck 2", "..\Macro-Deck (fork)\Macro Deck 2.csproj", "{297187AE-2DDF-4F80-89D3-6AF82A19555D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{69FEC278-7317-4686-A811-32C0E93A02DA} = {69FEC278-7317-4686-A811-32C0E93A02DA}
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GregsStack.InputSimulatorStandard", "InputSimulatorStandard\src\GregsStack.InputSimulatorStandard\GregsStack.InputSimulatorStandard.csproj", "{ACC53DC5-F7DE-4DC1-832D-B15808345F72}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EliteJournalReader", "EliteJournalReader\EliteJournalReader\EliteJournalReader.csproj", "{4F6606D4-452A-4E58-9290-C9AB614319C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Macro-Deck-OBS-WebSocket", "..\Macro-Deck-OBS-WebSocket-Plugin\Macro-Deck-OBS-WebSocket.csproj", "{4F646C24-D270-41B2-A11E-3796B1526B60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,9 @@ Global
 		{4F6606D4-452A-4E58-9290-C9AB614319C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F6606D4-452A-4E58-9290-C9AB614319C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F6606D4-452A-4E58-9290-C9AB614319C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F646C24-D270-41B2-A11E-3796B1526B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F646C24-D270-41B2-A11E-3796B1526B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F646C24-D270-41B2-A11E-3796B1526B60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

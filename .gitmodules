@@ -1,6 +1,6 @@
 [submodule "EliteJournalReader"]
 	path = EliteJournalReader
-	url = https://github.com/maimedleech/EliteJournalReader.git
+	url = https://github.com/eyeree/EliteJournalReader.git
 [submodule "InputSimulatorStandard"]
 	path = InputSimulatorStandard
-	url = https://github.com/maimedleech/InputSimulatorStandard.git
+	url = https://github.com/eyeree/InputSimulatorStandard.git
